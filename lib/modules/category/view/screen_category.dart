@@ -15,7 +15,7 @@ class _ScreenCategoryState extends State<ScreenCategory> {
   var categoryController = TextEditingController();
   List<Map<String, dynamic>> allCategory = [];
   bool isLoading = true;
-
+//getallcategoty
   void getAllCategory() async {
     final data = await SqlightService.getAllCategory();
     setState(() {
