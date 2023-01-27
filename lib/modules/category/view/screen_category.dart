@@ -58,10 +58,20 @@ class _ScreenCategoryState extends State<ScreenCategory> {
                 AppStyle.appButton(
                   title: "Add",
                   onPresses: () async {
-                    await SqlightService.addCategory(categoryController.text);
-                    categoryController.clear();
-                    getAllCategory();
-                    setState(() {});
+                    if(categoryController.text != "" && categoryController!= null){
+                      await SqlightService.addCategory(categoryController.text);
+                      categoryController.clear();
+                      getAllCategory();
+                      setState(() {});
+                    }
+                    else{
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text("Please Enter Category"),
+                        ),
+                      );
+                    }
+
                   },
                 ),
                 const SizedBox(height: 20),

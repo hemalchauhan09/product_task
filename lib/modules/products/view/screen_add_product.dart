@@ -66,7 +66,7 @@ class _ScreenAddProductState extends State<ScreenAddProduct> {
   }
 
   void addProduct() async {
-    if (selectedCategoryId.isNotEmpty && selectedCompanyId.isNotEmpty) {
+   if (selectedCategoryId.isNotEmpty && selectedCompanyId.isNotEmpty) {
       await SqlightService.addProduct(
         categoryId: selectedCategoryId,
         companyId: selectedCompanyId,
@@ -80,7 +80,7 @@ class _ScreenAddProductState extends State<ScreenAddProduct> {
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
-          content: Text("Please Selected Category Or Company"),
+          content: Text("Please Add Data"),
         ),
       );
     }

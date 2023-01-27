@@ -58,10 +58,20 @@ class _ScreenCompanyState extends State<ScreenCompany> {
                 AppStyle.appButton(
                   title: "Add",
                   onPresses: () async {
-                    await SqlightService.addCompany(companyController.text);
-                    companyController.clear();
-                    getAllCompany();
-                    setState(() {});
+                    if(companyController.text != "" && companyController.text != null){
+                      await SqlightService.addCompany(companyController.text);
+                      companyController.clear();
+                      getAllCompany();
+                      setState(() {});
+                    }
+                    else{
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text("Please Enter Company"),
+                        ),
+                      );
+                    }
+
                   },
                 ),
                 const SizedBox(height: 20),
